@@ -1,0 +1,9 @@
+* {
+    direction: rtl;
+    text-align: right;
+    font-family: IranSans !important;
+}
+#content-col {
+    margin-left: unset !important;
+    margin-right: 300px;
+}

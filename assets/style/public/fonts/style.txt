@@ -1,0 +1,17 @@
+@font-face{
+	
+font-family: iransans; 
+	
+font-style:normal; 
+	
+font-weight:400; 
+	
+src:url(https://www.digikala.com/mag/wp-content/themes/digikalamag/assets/desktop/font/text/IRANSans.eot?#iefix) format("embedded-opentype"),
+	
+url(https://www.digikala.com/mag/wp-content/themes/digikalamag/assets/desktop/font/text/IRANSans.woff) format("woff"),
+	
+url(https://www.digikala.com/mag/wp-content/themes/digikalamag/assets/desktop/font/text/IRANSans.ttf) format("truetype"),
+	
+url(https://www.digikala.com/mag/wp-content/themes/digikalamag/assets/desktop/font/text/IRANSans.svg#iransans) format("svg")
+
+}

@@ -1,0 +1,3 @@
+<?php
+	define( 'PAUTH_REDIRECT_MEMBER_AFTER_LOGIN' , ABS_PATH );
+	define( 'PAUTH_REDIRECT_ADMIN_AFTER_LOGIN' , ABS_PATH.'admin' );

@@ -1,0 +1,45 @@
+<?php
+	if (MAINTENANCE === TRUE) {
+		header('HTTP/1.1 503 Service Temporarily Unavailable', NULL, 503);
+		echo '503 Service Temporarily Unavailable';
+		die();
+	}
+	
+	if ($request['path'] === '/' || $request['path'] === 'index.php' || $request['path'] === '') {
+		PublicView('body', FALSE, NULL);
+	} elseif ($request['path'] === ADMIN_URL) {
+		AdminView('body', FALSE, NULL);
+	}
+
+
+//	elseif ( preg_match('/^(article\/)\w+/', $request['path']) || preg_match('/^(article\/)\w+{Arabic}/', $request['path']) )
+//	{
+//		$slug = str_replace('article/', '', $request['path']);
+//		echo "slug: $slug";
+//	}
+	
+	elseif (preg_match('/^(article\/)\w+/', $request['path']) || preg_match('/^(article\/)[^\w\u0621-\u064A\s]+/', $request['path'])) {
+		$slug = str_replace('article/', '', $request['path']);
+		echo "slug: $slug";
+	} elseif (preg_match('/^(t\/)\w+/', $request['path']) || preg_match('/^(article\/)[^\w\u0621-\u064A\s]+/', $request['path'])) {
+		$tiny = str_replace('t/', '', $request['path']);
+		CreatRedirect($tiny);
+	}
+
+//	elseif ( preg_match('/^(user\/)\w+/', $request['path']) )
+//	{
+//		$user = str_replace('user/', '', $request['path']);
+//		echo "user: $user";
+//	}
+	elseif (preg_match('/^(user\/)\w+/', $request['path']) || preg_match('/^(user\/)[^\w\u0621-\u064A\s]+/', $request['path'])) {
+		$slug = str_replace('article/', '', $request['path']);
+		echo "User: $slug";
+	} elseif (preg_match('/^(tny\/)\w+/', $request['path'])) {
+		$slug = str_replace('article/', '', $request['path']);
+		echo "Tiny: $slug";
+	} else {
+		header('HTTP/1.0 404 Not Found', NULL, 404);
+		UnreachableView('tmp');
+		die();
+		
+	}

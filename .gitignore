@@ -1,2 +1,3 @@
-.git
 /.idea
+/core/_db-query
+/core/_old-router
